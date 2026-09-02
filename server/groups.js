@@ -1,8 +1,8 @@
 export const GROUPS = [
   'ABCDE',
-  'FGHIJ',
-  'KLMNOP',
-  'RSTUWZ',
+  'FGHIJK',
+  'LMNOPR',
+  'STUWYZ',
   'SPACJA',
   'USUŃ'
 ];
