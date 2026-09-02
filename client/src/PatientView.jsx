@@ -16,13 +16,13 @@ export default function PatientView() {
 
   return (
     <div className="patient-view">
-      <button className="button button-left" onMouseDown={handleScrollLeft} onTouchStart={handleScrollLeft}>
+      <button className="button button-left" onClick={handleScrollLeft}>
         ⬅️
       </button>
-      <button className="button button-center" onMouseDown={handleSelect} onTouchStart={handleSelect}>
+      <button className="button button-center" onClick={handleSelect}>
         ✓
       </button>
-      <button className="button button-right" onMouseDown={handleScrollRight} onTouchStart={handleScrollRight}>
+      <button className="button button-right" onClick={handleScrollRight}>
         ➡️
       </button>
     </div>
