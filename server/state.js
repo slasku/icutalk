@@ -16,7 +16,7 @@ export function scrollRight(state) {
   if (newState.level === 'group') {
     newState.groupIndex = (newState.groupIndex + 1) % GROUPS.length;
   } else if (newState.level === 'letter' && newState.selectedGroup) {
-    const letterCount = newState.selectedGroup.length;
+    const letterCount = newState.selectedGroup.length + 1;
     newState.letterIndex = (newState.letterIndex + 1) % letterCount;
   }
 
@@ -29,7 +29,7 @@ export function scrollLeft(state) {
   if (newState.level === 'group') {
     newState.groupIndex = (newState.groupIndex - 1 + GROUPS.length) % GROUPS.length;
   } else if (newState.level === 'letter' && newState.selectedGroup) {
-    const letterCount = newState.selectedGroup.length;
+    const letterCount = newState.selectedGroup.length + 1;
     newState.letterIndex = (newState.letterIndex - 1 + letterCount) % letterCount;
   }
 
@@ -52,12 +52,21 @@ export function select(state) {
       newState.letterIndex = 0;
     }
   } else if (newState.level === 'letter' && newState.selectedGroup) {
-    const letter = newState.selectedGroup[newState.letterIndex];
-    newState.text += letter;
-    newState.level = 'group';
-    newState.groupIndex = 0;
-    newState.selectedGroup = null;
-    newState.letterIndex = 0;
+    const options = [...newState.selectedGroup.split(''), '◀'];
+    const selected = options[newState.letterIndex];
+
+    if (selected === '◀') {
+      newState.level = 'group';
+      newState.groupIndex = 0;
+      newState.selectedGroup = null;
+      newState.letterIndex = 0;
+    } else {
+      newState.text += selected;
+      newState.level = 'group';
+      newState.groupIndex = 0;
+      newState.selectedGroup = null;
+      newState.letterIndex = 0;
+    }
   }
 
   return newState;
@@ -67,7 +76,7 @@ export function getDisplayOptions(state) {
   if (state.level === 'group') {
     return GROUPS;
   } else if (state.level === 'letter' && state.selectedGroup) {
-    return state.selectedGroup.split('');
+    return [...state.selectedGroup.split(''), '◀'];
   }
   return [];
 }
