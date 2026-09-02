@@ -55,7 +55,7 @@ export function select(state) {
     const letter = newState.selectedGroup[newState.letterIndex];
     newState.text += letter;
     newState.level = 'group';
-    newState.groupIndex = 0;
+    newState.groupIndex = 2;
     newState.selectedGroup = null;
     newState.letterIndex = 0;
   }
