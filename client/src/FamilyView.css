@@ -64,8 +64,9 @@
 
 .option {
   padding: 1rem 1.5rem;
-  font-size: 1.5rem;
+  font-size: 3rem;
   font-weight: bold;
+  letter-spacing: 3px;
   background-color: #e9ecef;
   color: #000;
   border-radius: 8px;
@@ -108,11 +109,12 @@
   }
 
   .text-content {
-    font-size: 2rem;
+    font-size: 5rem;
   }
 
   .option {
-    font-size: 1rem;
-    padding: 0.75rem 1rem;
+    letter-spacing: 2px;
+    font-size: 2rem;
+    padding: 0.75rem 1.2rem;
   }
 }
